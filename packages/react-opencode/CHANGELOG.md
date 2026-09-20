@@ -1,5 +1,14 @@
 # @assistant-ui/react-opencode
 
+## 0.2.25
+
+### Patch Changes
+
+- [#7713](https://github.com/assistant-ui/assistant-ui/pull/7713) [`070114a`](https://github.com/assistant-ui/assistant-ui/commit/070114ace3c54c9cb67846b729c3480f436337e5) - fix: restore pending child-session interactions after reconnect ([@Kinfe123](https://github.com/Kinfe123))
+- Updated dependencies [[`eb034f6`](https://github.com/assistant-ui/assistant-ui/commit/eb034f6251d29430c0bc1a572f265bb4fadd991a), [`5a8ff94`](https://github.com/assistant-ui/assistant-ui/commit/5a8ff94af10ddbcff518c339bcda70cb71a886fe), [`3af3b61`](https://github.com/assistant-ui/assistant-ui/commit/3af3b61498da1dc14e7001c104721fb5d9d3aaad), [`0ad784f`](https://github.com/assistant-ui/assistant-ui/commit/0ad784f859d7191c9d5a7e996efbb162c5d5f2b1), [`84e0cf4`](https://github.com/assistant-ui/assistant-ui/commit/84e0cf4c9b7fc92a85d1360b37e2e20b73bed650), [`fdf5706`](https://github.com/assistant-ui/assistant-ui/commit/fdf57066a2fd7227aa552a9f985e76c8e639def0), [`dea2462`](https://github.com/assistant-ui/assistant-ui/commit/dea2462d97f79552d76c97cc8ad93753eccf2544), [`7face86`](https://github.com/assistant-ui/assistant-ui/commit/7face86c16cf9f1c64548816cf6db8e5c463c1c1), [`6407760`](https://github.com/assistant-ui/assistant-ui/commit/64077600dd62b8283d60487372bc192ca256405d), [`8e1508a`](https://github.com/assistant-ui/assistant-ui/commit/8e1508a9cde31e3d682a3b142dcd2aca29696b11), [`4928364`](https://github.com/assistant-ui/assistant-ui/commit/49283649b9119d8fe3acbc7bd2703d3473a98e9b), [`7725cbd`](https://github.com/assistant-ui/assistant-ui/commit/7725cbd5f6da9c9f4d53105a60e839983b033778), [`777df32`](https://github.com/assistant-ui/assistant-ui/commit/777df32e87179b4a7b993a823fca6ded8aa95e15), [`0ee58d8`](https://github.com/assistant-ui/assistant-ui/commit/0ee58d8c74bde9d1bf772a55370651eeccb37e56), [`75bd488`](https://github.com/assistant-ui/assistant-ui/commit/75bd48844f69e61d2e8e09a20b3003cd75f6adc0), [`92e991a`](https://github.com/assistant-ui/assistant-ui/commit/92e991a03d319112cf8670472c4bcaad990954fb), [`534e11f`](https://github.com/assistant-ui/assistant-ui/commit/534e11fa22102cd7c1c94ff6850742796cd37fa1)]:
+  - @assistant-ui/core@0.3.21
+  - @assistant-ui/store@0.3.15
+
 ## 0.2.24
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @assistant-ui/react-ink
 
+## 0.0.45
+
+### Patch Changes
+
+- [#7760](https://github.com/assistant-ui/assistant-ui/pull/7760) [`84e0cf4`](https://github.com/assistant-ui/assistant-ui/commit/84e0cf4c9b7fc92a85d1360b37e2e20b73bed650) - fix: emit declarations from one TypeScript program so two builds of the same commit produce the same `.d.ts` ([@okisdev](https://github.com/okisdev))
+  
+  `aui-build` now emits the unbundled `.d.ts` output in one TypeScript pass over the whole package, so two builds of the same commit produce identical declarations; the per-module emit it replaced followed the bundler's load order and let union member order, alias visibility and import specifiers move between builds. Declarations import barrels as the source does and keep `import type`; the exported types are unchanged. A `/// <reference>` directive that must reach the published declarations now carries `preserve="true"` in the source.
+- Updated dependencies [[`eb034f6`](https://github.com/assistant-ui/assistant-ui/commit/eb034f6251d29430c0bc1a572f265bb4fadd991a), [`5a8ff94`](https://github.com/assistant-ui/assistant-ui/commit/5a8ff94af10ddbcff518c339bcda70cb71a886fe), [`3af3b61`](https://github.com/assistant-ui/assistant-ui/commit/3af3b61498da1dc14e7001c104721fb5d9d3aaad), [`0ad784f`](https://github.com/assistant-ui/assistant-ui/commit/0ad784f859d7191c9d5a7e996efbb162c5d5f2b1), [`84e0cf4`](https://github.com/assistant-ui/assistant-ui/commit/84e0cf4c9b7fc92a85d1360b37e2e20b73bed650), [`9619b42`](https://github.com/assistant-ui/assistant-ui/commit/9619b4207b96cad96ec649856454db2a937aea79), [`fdf5706`](https://github.com/assistant-ui/assistant-ui/commit/fdf57066a2fd7227aa552a9f985e76c8e639def0), [`dea2462`](https://github.com/assistant-ui/assistant-ui/commit/dea2462d97f79552d76c97cc8ad93753eccf2544), [`7face86`](https://github.com/assistant-ui/assistant-ui/commit/7face86c16cf9f1c64548816cf6db8e5c463c1c1), [`6407760`](https://github.com/assistant-ui/assistant-ui/commit/64077600dd62b8283d60487372bc192ca256405d), [`8e1508a`](https://github.com/assistant-ui/assistant-ui/commit/8e1508a9cde31e3d682a3b142dcd2aca29696b11), [`4928364`](https://github.com/assistant-ui/assistant-ui/commit/49283649b9119d8fe3acbc7bd2703d3473a98e9b), [`7725cbd`](https://github.com/assistant-ui/assistant-ui/commit/7725cbd5f6da9c9f4d53105a60e839983b033778), [`777df32`](https://github.com/assistant-ui/assistant-ui/commit/777df32e87179b4a7b993a823fca6ded8aa95e15), [`0ee58d8`](https://github.com/assistant-ui/assistant-ui/commit/0ee58d8c74bde9d1bf772a55370651eeccb37e56), [`75bd488`](https://github.com/assistant-ui/assistant-ui/commit/75bd48844f69e61d2e8e09a20b3003cd75f6adc0), [`92e991a`](https://github.com/assistant-ui/assistant-ui/commit/92e991a03d319112cf8670472c4bcaad990954fb), [`534e11f`](https://github.com/assistant-ui/assistant-ui/commit/534e11fa22102cd7c1c94ff6850742796cd37fa1), [`4b069f9`](https://github.com/assistant-ui/assistant-ui/commit/4b069f90fbcb58953ebc7b9c4becca0bf4607842)]:
+  - @assistant-ui/core@0.3.21
+  - assistant-stream@0.3.45
+  - @assistant-ui/store@0.3.15
+
 ## 0.0.44
 
 ### Patch Changes

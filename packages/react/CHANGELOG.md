@@ -1,5 +1,35 @@
 # @assistant-ui/react
 
+## 0.15.22
+
+### Patch Changes
+
+- [#7731](https://github.com/assistant-ui/assistant-ui/pull/7731) [`455e2ac`](https://github.com/assistant-ui/assistant-ui/commit/455e2ac67bbcb7329d3f8367daf409eac5bc3a27) - fix: lock the current scroll container after reasoning content or its ancestor chain changes ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7730](https://github.com/assistant-ui/assistant-ui/pull/7730) [`af49e91`](https://github.com/assistant-ui/assistant-ui/commit/af49e91648334569ac36a94f602a66b6dbe031dc) - fix: prevent stale message hover updates after unmount ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7737](https://github.com/assistant-ui/assistant-ui/pull/7737) [`6cc0bee`](https://github.com/assistant-ui/assistant-ui/commit/6cc0bee320a1eccc855b4140249b8ac552010472) - fix: scope selection toolbars to their owning thread ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7760](https://github.com/assistant-ui/assistant-ui/pull/7760) [`84e0cf4`](https://github.com/assistant-ui/assistant-ui/commit/84e0cf4c9b7fc92a85d1360b37e2e20b73bed650) - fix: emit declarations from one TypeScript program so two builds of the same commit produce the same `.d.ts` ([@okisdev](https://github.com/okisdev))
+  
+  `aui-build` now emits the unbundled `.d.ts` output in one TypeScript pass over the whole package, so two builds of the same commit produce identical declarations; the per-module emit it replaced followed the bundler's load order and let union member order, alias visibility and import specifiers move between builds. Declarations import barrels as the source does and keep `import type`; the exported types are unchanged. A `/// <reference>` directive that must reach the published declarations now carries `preserve="true"` in the source.
+
+- [#7520](https://github.com/assistant-ui/assistant-ui/pull/7520) [`2171a8e`](https://github.com/assistant-ui/assistant-ui/commit/2171a8e06b8ca739a98eba927ab8b27175dd7be6) - fix(react): attach the ExportMarkdown download anchor to the document so Firefox starts the download ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7733](https://github.com/assistant-ui/assistant-ui/pull/7733) [`e2f1306`](https://github.com/assistant-ui/assistant-ui/commit/e2f13068534f9ca2d526a4e683846db7d6f2ec3b) - fix: clear attachment drag state when the dropzone is disabled ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7762](https://github.com/assistant-ui/assistant-ui/pull/7762) [`4928364`](https://github.com/assistant-ui/assistant-ui/commit/49283649b9119d8fe3acbc7bd2703d3473a98e9b) - fix: resolve component registries by own keys only, so a component, tool or data part name that only `Object.prototype` has (`toString`, `constructor`, `__proto__`) takes the `Fallback` or `GenerativeUIRenderError` path instead of rendering the inherited built-in ([@okisdev](https://github.com/okisdev))
+
+- [#7068](https://github.com/assistant-ui/assistant-ui/pull/7068) [`4b069f9`](https://github.com/assistant-ui/assistant-ui/commit/4b069f90fbcb58953ebc7b9c4becca0bf4607842) - fix: Use successful Standard Schema output for tool execution and model output. Keep the original arguments for validation errors and stored tool calls. ([@ephraimduncan](https://github.com/ephraimduncan))
+
+- [#7716](https://github.com/assistant-ui/assistant-ui/pull/7716) [`3f4369b`](https://github.com/assistant-ui/assistant-ui/commit/3f4369bca08b7cd948f1b2671d424bfc1ccdeaca) - fix: respond to touch and programmatic text selection changes ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#6338](https://github.com/assistant-ui/assistant-ui/pull/6338) [`88143c2`](https://github.com/assistant-ui/assistant-ui/commit/88143c266d50fcba75425f38e9eebb27854bbac4) - fix: restore the pre-clamp viewport position after a layout-induced scroll clamp on WebKit ([@Kinfe123](https://github.com/Kinfe123))
+- Updated dependencies [[`eb034f6`](https://github.com/assistant-ui/assistant-ui/commit/eb034f6251d29430c0bc1a572f265bb4fadd991a), [`5a8ff94`](https://github.com/assistant-ui/assistant-ui/commit/5a8ff94af10ddbcff518c339bcda70cb71a886fe), [`3af3b61`](https://github.com/assistant-ui/assistant-ui/commit/3af3b61498da1dc14e7001c104721fb5d9d3aaad), [`0ad784f`](https://github.com/assistant-ui/assistant-ui/commit/0ad784f859d7191c9d5a7e996efbb162c5d5f2b1), [`84e0cf4`](https://github.com/assistant-ui/assistant-ui/commit/84e0cf4c9b7fc92a85d1360b37e2e20b73bed650), [`9619b42`](https://github.com/assistant-ui/assistant-ui/commit/9619b4207b96cad96ec649856454db2a937aea79), [`fdf5706`](https://github.com/assistant-ui/assistant-ui/commit/fdf57066a2fd7227aa552a9f985e76c8e639def0), [`dea2462`](https://github.com/assistant-ui/assistant-ui/commit/dea2462d97f79552d76c97cc8ad93753eccf2544), [`7face86`](https://github.com/assistant-ui/assistant-ui/commit/7face86c16cf9f1c64548816cf6db8e5c463c1c1), [`6407760`](https://github.com/assistant-ui/assistant-ui/commit/64077600dd62b8283d60487372bc192ca256405d), [`8e1508a`](https://github.com/assistant-ui/assistant-ui/commit/8e1508a9cde31e3d682a3b142dcd2aca29696b11), [`4928364`](https://github.com/assistant-ui/assistant-ui/commit/49283649b9119d8fe3acbc7bd2703d3473a98e9b), [`7725cbd`](https://github.com/assistant-ui/assistant-ui/commit/7725cbd5f6da9c9f4d53105a60e839983b033778), [`777df32`](https://github.com/assistant-ui/assistant-ui/commit/777df32e87179b4a7b993a823fca6ded8aa95e15), [`0ee58d8`](https://github.com/assistant-ui/assistant-ui/commit/0ee58d8c74bde9d1bf772a55370651eeccb37e56), [`75bd488`](https://github.com/assistant-ui/assistant-ui/commit/75bd48844f69e61d2e8e09a20b3003cd75f6adc0), [`92e991a`](https://github.com/assistant-ui/assistant-ui/commit/92e991a03d319112cf8670472c4bcaad990954fb), [`534e11f`](https://github.com/assistant-ui/assistant-ui/commit/534e11fa22102cd7c1c94ff6850742796cd37fa1), [`4b069f9`](https://github.com/assistant-ui/assistant-ui/commit/4b069f90fbcb58953ebc7b9c4becca0bf4607842)]:
+  - @assistant-ui/core@0.3.21
+  - assistant-stream@0.3.45
+  - @assistant-ui/store@0.3.15
+
 ## 0.15.21
 
 ### Patch Changes

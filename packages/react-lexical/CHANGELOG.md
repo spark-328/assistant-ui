@@ -1,5 +1,11 @@
 # @assistant-ui/react-lexical
 
+## 0.2.15
+
+### Patch Changes
+
+- [#7621](https://github.com/assistant-ui/assistant-ui/pull/7621) [`bb12d41`](https://github.com/assistant-ui/assistant-ui/commit/bb12d41c6619ff80a01cfd282770250a2c06465b) - chore: migrate to Lexical 0.51 ([@samdickson22](https://github.com/samdickson22))
+
 ## 0.2.14
 
 ### Patch Changes

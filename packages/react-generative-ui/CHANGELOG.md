@@ -1,5 +1,13 @@
 # @assistant-ui/react-generative-ui
 
+## 0.0.20
+
+### Patch Changes
+
+- [#7375](https://github.com/assistant-ui/assistant-ui/pull/7375) [`36da8b7`](https://github.com/assistant-ui/assistant-ui/commit/36da8b72c88586cfc42d3ac2f21757702952a2be) - fix: preserve recursive component schema references in generative UI tool parameters. ([@Kinfe123](https://github.com/Kinfe123))
+- Updated dependencies [[`9619b42`](https://github.com/assistant-ui/assistant-ui/commit/9619b4207b96cad96ec649856454db2a937aea79), [`4b069f9`](https://github.com/assistant-ui/assistant-ui/commit/4b069f90fbcb58953ebc7b9c4becca0bf4607842)]:
+  - assistant-stream@0.3.45
+
 ## 0.0.19
 
 ### Patch Changes

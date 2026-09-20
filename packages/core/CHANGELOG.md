@@ -1,5 +1,53 @@
 # @assistant-ui/core
 
+## 0.3.21
+
+### Patch Changes
+
+- [#7735](https://github.com/assistant-ui/assistant-ui/pull/7735) [`eb034f6`](https://github.com/assistant-ui/assistant-ui/commit/eb034f6251d29430c0bc1a572f265bb4fadd991a) - fix: roll back subscriptions when connecting to their source fails ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7738](https://github.com/assistant-ui/assistant-ui/pull/7738) [`5a8ff94`](https://github.com/assistant-ui/assistant-ui/commit/5a8ff94af10ddbcff518c339bcda70cb71a886fe) - fix: validate persisted assistant statuses and steps before loading history ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7675](https://github.com/assistant-ui/assistant-ui/pull/7675) [`3af3b61`](https://github.com/assistant-ui/assistant-ui/commit/3af3b61498da1dc14e7001c104721fb5d9d3aaad) - fix: attempt every runtime cleanup when an unsubscribe throws ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7769](https://github.com/assistant-ui/assistant-ui/pull/7769) [`0ad784f`](https://github.com/assistant-ui/assistant-ui/commit/0ad784f859d7191c9d5a7e996efbb162c5d5f2b1) - fix: keep a tool call's pending approval or interrupt actionable when the call already carries a result, so a question raised by a tool that streamed output first (react-pi partial results) still renders its controls instead of reading as complete ([@okisdev](https://github.com/okisdev))
+
+- [#7760](https://github.com/assistant-ui/assistant-ui/pull/7760) [`84e0cf4`](https://github.com/assistant-ui/assistant-ui/commit/84e0cf4c9b7fc92a85d1360b37e2e20b73bed650) - fix: emit declarations from one TypeScript program so two builds of the same commit produce the same `.d.ts` ([@okisdev](https://github.com/okisdev))
+  
+  `aui-build` now emits the unbundled `.d.ts` output in one TypeScript pass over the whole package, so two builds of the same commit produce identical declarations; the per-module emit it replaced followed the bundler's load order and let union member order, alias visibility and import specifiers move between builds. Declarations import barrels as the source does and keep `import type`; the exported types are unchanged. A `/// <reference>` directive that must reach the published declarations now carries `preserve="true"` in the source.
+
+- [#7682](https://github.com/assistant-ui/assistant-ui/pull/7682) [`fdf5706`](https://github.com/assistant-ui/assistant-ui/commit/fdf57066a2fd7227aa552a9f985e76c8e639def0) - refactor: make the replay boundary stream clear its own replay state on read failures and cancellation, so the transition out of replay mode is balanced with the transition in ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7674](https://github.com/assistant-ui/assistant-ui/pull/7674) [`dea2462`](https://github.com/assistant-ui/assistant-ui/commit/dea2462d97f79552d76c97cc8ad93753eccf2544) - fix: prevent late local-storage history writes from restoring deleted threads ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7757](https://github.com/assistant-ui/assistant-ui/pull/7757) [`7face86`](https://github.com/assistant-ui/assistant-ui/commit/7face86c16cf9f1c64548816cf6db8e5c463c1c1) - fix: keep messages stable across values events when UI lives in graph state ([@okisdev](https://github.com/okisdev))
+  
+  `useStreamRuntime` reconverted every root message and every nested subagent transcript on each `values` event when `stream.values.ui` (or the configured `uiStateKey`) held generative UI, even when its contents had not changed. The SDK rebuilds the `values` object from every snapshot and reconciles only the messages slot by id, so an unchanged UI list arrives as a new array of new entries on every superstep and every cached conversion missed. The runtime now recovers entry identity where the snapshot enters the merge: an entry structurally equal to the previous entry with its id keeps the previous object, and an unchanged list keeps the previous list, so the merged UI map, the converter and the subagent transcripts only change when the UI state does.
+  
+  `@assistant-ui/core/internal` exports `isJSONValueEqual`.
+
+- [#7329](https://github.com/assistant-ui/assistant-ui/pull/7329) [`6407760`](https://github.com/assistant-ui/assistant-ui/commit/64077600dd62b8283d60487372bc192ca256405d) - fix: tear down late voice controls at most once while preserving cleanup after early cancellation and the original session end reason. ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7762](https://github.com/assistant-ui/assistant-ui/pull/7762) [`4928364`](https://github.com/assistant-ui/assistant-ui/commit/49283649b9119d8fe3acbc7bd2703d3473a98e9b) - fix: resolve component registries by own keys only, so a component, tool or data part name that only `Object.prototype` has (`toString`, `constructor`, `__proto__`) takes the `Fallback` or `GenerativeUIRenderError` path instead of rendering the inherited built-in ([@okisdev](https://github.com/okisdev))
+
+- [#7390](https://github.com/assistant-ui/assistant-ui/pull/7390) [`7725cbd`](https://github.com/assistant-ui/assistant-ui/commit/7725cbd5f6da9c9f4d53105a60e839983b033778) - fix: preserve falsy error payloads such as `0`, `""` and `false` in external runtimes, while continuing to treat `null` as no error ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7734](https://github.com/assistant-ui/assistant-ui/pull/7734) [`777df32`](https://github.com/assistant-ui/assistant-ui/commit/777df32e87179b4a7b993a823fca6ded8aa95e15) - fix: clean up dictation sessions when listener setup fails ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7367](https://github.com/assistant-ui/assistant-ui/pull/7367) [`0ee58d8`](https://github.com/assistant-ui/assistant-ui/commit/0ee58d8c74bde9d1bf772a55370651eeccb37e56) - fix: reuse successful attachment uploads after a sibling fails in both runtime and ExternalThread composers, while preserving cleanup when the unsent draft is discarded. ([@Kinfe123](https://github.com/Kinfe123))
+
+- [#7707](https://github.com/assistant-ui/assistant-ui/pull/7707) [`75bd488`](https://github.com/assistant-ui/assistant-ui/commit/75bd48844f69e61d2e8e09a20b3003cd75f6adc0) - fix: correct settled and failed tool-call arg conversion ([@balazsrozsenich-dakai](https://github.com/balazsrozsenich-dakai))
+  
+  Stop re-reporting a settled tool call's unchanged arguments each time it is reconverted (which could OOM the renderer on large args), skip re-serializing them while the call keeps the same input object, and preserve a schema-failed tool call's arguments from `rawInput` instead of converting the error snapshot to `{}`.
+
+- [#7618](https://github.com/assistant-ui/assistant-ui/pull/7618) [`92e991a`](https://github.com/assistant-ui/assistant-ui/commit/92e991a03d319112cf8670472c4bcaad990954fb) - fix: render numeric and nested-array generative UI children ([@Kinfe123](https://github.com/Kinfe123))
+  
+  `GenerativeUINode` now also accepts `number` and `readonly GenerativeUINode[]`. Code that narrows the union exhaustively needs cases for the new members; component `children` remains a `readonly GenerativeUINode[]`.
+
+- [#7729](https://github.com/assistant-ui/assistant-ui/pull/7729) [`534e11f`](https://github.com/assistant-ui/assistant-ui/commit/534e11fa22102cd7c1c94ff6850742796cd37fa1) - fix: ignore malformed AssistantFrame messages ([@Kinfe123](https://github.com/Kinfe123))
+- Updated dependencies [[`9619b42`](https://github.com/assistant-ui/assistant-ui/commit/9619b4207b96cad96ec649856454db2a937aea79), [`4b069f9`](https://github.com/assistant-ui/assistant-ui/commit/4b069f90fbcb58953ebc7b9c4becca0bf4607842)]:
+  - assistant-stream@0.3.45
+
 ## 0.3.20
 
 ### Patch Changes
